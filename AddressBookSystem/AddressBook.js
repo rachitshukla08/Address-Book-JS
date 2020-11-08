@@ -173,3 +173,11 @@ console.log(addressBookArray.toString());
     console.log("\nAddress Book Array After Deleting Contact: "+addressBookArray)
 }
 
+//UC6 NUMBER OF CONTACTS IN ADDRESS BOOK USING REDUCE IN SEPARATE FUNCTION
+{
+    function totalContacts(totalContacts){
+        return ++totalContacts;
+    }
+    console.log("\nTotal Contacts With reduce using separate function: "+addressBookArray.reduce(totalContacts,0)); 
+
+}
