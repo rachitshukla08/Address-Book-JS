@@ -139,14 +139,17 @@ addContact(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","77210
 console.log(addressBookArray.toString());
 
 //UC4 USING ARROW FUNCTION 
-{
-    let contactToEdit = addressBookArray.find(contact=>contact.firstName=="Jeff"&&contact.lastName=="Bezos");
-    if(contactToEdit!=undefined){
-        contactToEdit.phone = "11 6123456789";
-        console.log("\nEdit contact using arrow => function "+addressBookArray);
+{   
+    function findAndEditContact(firstName,lastName,phone){
+        let contactToEdit = addressBookArray.find(contact=>contact.firstName==firstName&&contact.lastName==lastName);
+        if(contactToEdit!=undefined){
+            contactToEdit.phone = phone;
+            console.log("\nEdit contact using arrow => function "+addressBookArray);
+        }
+        else 
+            console.log("\nContact not found");
     }
-    else 
-        console.log("\nContact not found");
+    findAndEditContact("Jeff","Bezos","11 6123456789");
 }
 
 //UC4 USING SEPARATE FUNCTION
@@ -163,11 +166,14 @@ console.log(addressBookArray.toString());
 
 //UC5 DELETE A CONTACT
 {
-    for(let i=0;i<addressBookArray.length;i++){
-        if(addressBookArray[i].firstName=="Jeff"
-            &&addressBookArray[i].lastName=="Bezos")
-            delete addressBookArray[i];
+    function deleteContact(firstName,lastName){
+        for(let i=0;i<addressBookArray.length;i++){
+            if(addressBookArray[i].firstName==firstName
+                &&addressBookArray[i].lastName==lastName)
+                delete addressBookArray[i];
+        }
     }
+    deleteContact("Jeff","Bezos");
     console.log("\nAddress Book Array After Deleting Contact: "+addressBookArray)
 }
 
