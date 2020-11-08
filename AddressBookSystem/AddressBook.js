@@ -162,3 +162,14 @@ console.log(addressBookArray.toString());
     let contactToEdit = addressBookArray.find(findAndEditContact);
     console.log("\nUsing separate function: "+addressBookArray);
 }
+
+//UC5 DELETE A CONTACT
+{
+    for(let i=0;i<addressBookArray.length;i++){
+        if(addressBookArray[i].firstName=="Jeff"
+            &&addressBookArray[i].lastName=="Bezos")
+            delete addressBookArray[i];
+    }
+    console.log("\nAddress Book Array After Deleting Contact: "+addressBookArray)
+}
+
