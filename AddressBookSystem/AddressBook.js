@@ -84,7 +84,7 @@ class Contact{
     }
 
     toString(){
-        return "First Name: "+this.firstName+", Last Name: "+this.lastName + ", Address: "+this.address+", City: "+this.city+", State: "
+        return "\nFirst Name: "+this.firstName+", Last Name: "+this.lastName + ", Address: "+this.address+", City: "+this.city+", State: "
                 +this.state+", Zip: "+this.zip+", Phone: "+this.phone+", Email: "+this.email;
     }
 }
@@ -131,4 +131,12 @@ console.log(contact.toString());
         console.error(e);
     }
 }
+
+let addressBookArray = new Array();
+addressBookArray.push(contact);
+addressBookArray.push(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
+addressBookArray.push(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
+addressBookArray.push(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
+console.log(addressBookArray.toString());
+
 
