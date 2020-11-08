@@ -89,9 +89,6 @@ class Contact{
     }
 }
 
-let contact = new Contact("Rachit","Shukla","Street 190","Bhopal","Madhya Pradesh","432109","91 9182736450","rachit@email.com");
-console.log(contact.toString());
-
 //Failure cases:
 {
     //incorrect first name:
@@ -134,10 +131,11 @@ console.log(contact.toString());
 
 //UC3
 let addressBookArray = new Array();
-addressBookArray.push(contact);
-addressBookArray.push(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
-addressBookArray.push(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
-addressBookArray.push(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
+let contact = new Contact("Rachit","Shukla","Street 190","Bhopal","Madhya Pradesh","432109","91 9182736450","rachit@email.com");
+addContact(contact);
+addContact(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
+addContact(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
+addContact(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
 console.log(addressBookArray.toString());
 
 //UC4 USING ARROW FUNCTION 
@@ -145,7 +143,7 @@ console.log(addressBookArray.toString());
     let contactToEdit = addressBookArray.find(contact=>contact.firstName=="Jeff"&&contact.lastName=="Bezos");
     if(contactToEdit!=undefined){
         contactToEdit.phone = "11 6123456789";
-        console.log("\nUsing arrow => function "+addressBookArray);
+        console.log("\nEdit contact using arrow => function "+addressBookArray);
     }
     else 
         console.log("\nContact not found");
@@ -160,7 +158,7 @@ console.log(addressBookArray.toString());
         }
     }
     let contactToEdit = addressBookArray.find(findAndEditContact);
-    console.log("\nUsing separate function: "+addressBookArray);
+    console.log("\nEdit contact using separate function: "+addressBookArray);
 }
 
 //UC5 DELETE A CONTACT
@@ -186,3 +184,17 @@ console.log(addressBookArray.toString());
     console.log("Total Contacts With reduce using arrow => function: "+addressBookArray.reduce((totalContacts)=>++totalContacts,0));
 }
 
+//UC7 Add contact if not already present:
+function addContact(newContact){
+    let presentContact = addressBookArray.find(contact=>contact.firstName==newContact.firstName&&contact.lastName==newContact.lastName);
+    if(presentContact==undefined){
+        addressBookArray.push(newContact);
+        console.log("Contact added");
+    }
+    else 
+        console.log("Contact not added, already present: "+newContact.firstName+" "+newContact.lastName);
+}
+
+//Trying to add duplicate contact:
+addContact(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
+console.log(addressBookArray.toString());
