@@ -229,3 +229,17 @@ function viewPersonsByCityOrState(name,type){
 }
 viewPersonsByCityOrState("NewYork","City");
 viewPersonsByCityOrState("New York","State");
+
+//UC9 Count persons by city or state
+function countPersonsByCityOrState(name,type){
+    let count = 0;
+    if(type=="City")
+        addressBookArray.filter(contact=>contact.city==name).forEach(contact=>++count);
+    else if(type=="State")
+        addressBookArray.filter(contact=>contact.state==name).forEach(contact=>++count);
+    else 
+        console.log("Invalid choice");
+    return count;
+}
+console.log("\nNumber of contacts in NewYork City: "+countPersonsByCityOrState("NewYork","City"));
+console.log("Number of contacts in New York State: "+countPersonsByCityOrState("New York","State"));
