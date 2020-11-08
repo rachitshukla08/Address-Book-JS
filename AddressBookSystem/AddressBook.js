@@ -243,3 +243,10 @@ function countPersonsByCityOrState(name,type){
 }
 console.log("\nNumber of contacts in NewYork City: "+countPersonsByCityOrState("NewYork","City"));
 console.log("Number of contacts in New York State: "+countPersonsByCityOrState("New York","State"));
+
+//UC 11 Sort Entries alphabetically
+function sortAddressBook(){
+    addressBookArray.sort();
+}
+sortAddressBook();
+console.log("\nSorted address book by name:" +addressBookArray.toString());
