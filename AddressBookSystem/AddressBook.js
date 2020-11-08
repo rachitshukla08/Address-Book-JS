@@ -179,5 +179,10 @@ console.log(addressBookArray.toString());
         return ++totalContacts;
     }
     console.log("\nTotal Contacts With reduce using separate function: "+addressBookArray.reduce(totalContacts,0)); 
-
 }
+
+//UC6 NUMBER OF CONTACTS IN ADDRESS BOOK USING ARROW FUNCTION TO REDUCE
+{
+    console.log("Total Contacts With reduce using arrow => function: "+addressBookArray.reduce((totalContacts)=>++totalContacts,0));
+}
+
